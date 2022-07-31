@@ -1,0 +1,195 @@
+@import url("https://static.tumblr.com/0sthd5y/SxFo1lcga/proxima.css");
+
+body {
+	background: #f4cccc;
+	font-family: 'proxima_nova','Helvetica Neue', 'Helvetica', sans-serif;
+	font-smooth: always;
+}
+
+div#wrapper {
+	width: 414px;
+	max-width: 100%;
+	margin: 20vh auto;
+	text-align: center;
+}
+
+img {
+	max-width: 100%;
+}
+
+label#fileLabel {
+	font-weight: bold;
+	border: 2px dashed #000;
+	padding: 20px 20px 15px;
+	margin: auto;
+	display: block;
+	width: max-content;
+	font-size: 1.1em;
+	background: url(/file.png);
+	background-position: 19px center;
+	background-size: 18px;
+	padding-left: 56px;
+	background-repeat: no-repeat;
+	border-radius: 10px;
+	opacity: .6;
+	max-width: 100%;
+	position: relative;
+	transition: 1s ease;
+}
+
+label#fileLabel:hover {
+	background-color: #f4e8d9;
+	box-shadow: 0 0 0 5px #f4e8d9;
+}
+
+label#fileLabel>span>b:first-child {
+	display: inline-block;
+	white-space: nowrap;
+	max-width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+	font-weight: 100;
+}
+
+label#fileLabel>span>b:last-child {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: .6em;
+	background: #000d;
+	color: #fff;
+	padding: 5px;
+	margin-left: 10px;
+	border-radius: 5px;
+	font-weight: 100;
+}
+
+b#progressBar {
+	position: absolute;
+	top: 2px;
+	left: 2px;
+	bottom: 2px;
+	width: 0;
+	background: linear-gradient(45deg, #4673a144, #7b93aa);
+	border-radius: 10px;
+	z-index: -1;
+	transition: 1s ease;
+	opacity: .7;
+}
+
+#progressBar>i {
+	position: absolute;
+	bottom: -1.5em;
+	font-size: 0.8em;
+	right: 0;
+}
+
+div#archive {
+	margin-top: 50px;
+	background: linear-gradient(180deg, #f2bcbd, transparent);
+}
+
+h1 {
+	font-size: 1.1em;
+	padding: 10px;
+	text-align: left;
+	margin: 0;
+	background: #efb9b9;
+	color: #625252;
+}
+
+div#button {
+	margin-top: 50px;
+}
+
+div#wrapper>img {
+	width: 250px;
+	margin: auto;
+}
+
+.arc {
+	border: 1px solid #4774a3;
+	border-radius: 5px;
+	position: relative;
+	height: 72px;
+	overflow: hidden;
+	margin: 10px;
+	background-color: #f6e9da;
+	cursor: default;
+}
+
+.thmb {
+	position: absolute;
+	left: 0;
+	width: 72px;
+	height: 72px;
+	background-size: cover;
+	background-color: #4574a3;
+}
+
+.info {
+	margin-left: 72px;
+	width: calc(100% - 144px);
+	text-align: left;
+	padding: 5px 10px;
+	box-sizing: border-box;
+}
+
+.info>span {
+	display: block;
+}
+
+.copy {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 57px;
+	height: 52px;
+	padding: 17px 0 0 8px;
+	box-sizing: border-box;
+	background: transparent;
+	border-left: 1px solid #b69b75;
+	text-decoration: underline;
+	color: #4574a3;
+	margin: 10px;
+	margin-left: 5px;
+	cursor: pointer;
+}
+
+span.name {
+	font-size: 1.2em;
+	font-weight: bold;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	color: #755d3c;
+}
+
+input.link {
+	font-size: 1.2em;
+	line-height: 1em;
+	background: transparent;
+	border: none;
+	color: #a08664;
+	padding: 0;
+	outline: none;
+	margin: -5px 0;
+}
+
+span.size {
+	background: #7b93aa;
+	color: #fff;
+	vertical-align: super;
+	padding: 5px 5px 2px;
+	font-size: 0.8em;
+	border-radius: 5px;
+	width: max-content;
+}
+
+span.time {
+	font-size: 0.8em;
+	position: absolute;
+	bottom: 5px;
+	right: 77px;
+	color: #af9d56;
+}
