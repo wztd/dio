@@ -101,11 +101,11 @@ $('#file')[0].onchange = function() {
 					archive = [];
 					if(!!localStorage.archive){archive = JSON.parse(localStorage.archive)}
 					archive.push([fname,fsize,fid,ftime,thumbnails]);
-				runArchive();
 				localStorage.archive = JSON.stringify(archive);
+				runArchive();
 			} else {
 				// Error
-				alert('failoed');
+				alert('failed, possible file duplicate');
 			}
 			$("#fileLabel>span").html('Choose file..');
 			$("#progressBar>i").html('');
