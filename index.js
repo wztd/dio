@@ -32,7 +32,7 @@ function runArchive(){
 			fthmb = archive[i][4],
 			ftime = new Date(archive[i][3]).toString().split(' ');
 			ftime = ftime[0]+' '+ftime[1]+' '+ftime[2]+' '+ftime[4];
-		$('#archive').append('<div class="arc"><div class="thmb" style="background-image:url('+fthmb+')"></div><div class="info"><span class="name">'+fname+'</span><input class="link" type="text" value="'+flink+'" readonly="readonly"/><span class="size">'+fsize+'</span><span class="time">'+ftime+'</span></div><div class="copy" data-url="'+flink+'">[copy]</div></div>')
+		$('#archive>h1').after('<div class="arc"><div class="thmb" style="background-image:url('+fthmb+')"></div><div class="info"><span class="name">'+fname+'</span><input class="link" type="text" value="'+flink+'" readonly="readonly"/><span class="size">'+fsize+'</span><span class="time">'+ftime+'</span></div><div class="copy" data-url="'+flink+'">[copy]</div></div>')
 	}
 	$('.copy').on('click',function(){
 		copyToClipboard($(this).data('url'));

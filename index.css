@@ -11,6 +11,8 @@ div#wrapper {
 	max-width: 100%;
 	margin: 20vh auto;
 	text-align: center;
+	padding: 5px;
+	box-sizing: border-box;
 }
 
 img {
