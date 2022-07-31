@@ -1,0 +1,382 @@
+html, body {
+    background: #9dc4b9;
+    color: #000;
+    font-family: 'Coming Soon', cursive;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+@media only screen and (max-device-width: 414px) (orientation: portrait) {
+  /* Styles */
+}
+
+
+div#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    z-index: 999;
+}
+
+img {
+    max-width: 100%;
+}
+
+#loading .wrapper {
+    text-align: center;
+    width: 90vw;
+    height: max-content;
+    position: absolute;
+    top: -69px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+div#loading img {
+    filter: invert(1);
+    max-width: 200px;
+    display: block;
+    margin: auto;
+}
+
+div#loaderbar {
+    position: absolute;
+    bottom: 120px;
+    left: 0;
+    right: 0;
+    border: 1px solid #666;
+    width: 25px;
+    height: 5px;
+    margin: auto;
+    padding: 1px;
+}
+
+div#loaderbar>div {
+    width: 0;
+    height: 100%;
+    background: #999;
+}
+
+#loading.loaded div#loaderbar>div {
+    background-color: limegreen;
+}
+
+#loading.loaded div#loaderbar {
+    animation: drop 2s 1;
+}
+
+@keyframes drop {
+    20% {
+        bottom: 150px;
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        bottom: -500px
+    }
+}
+
+div#start, div#nextslide {
+    position: absolute;
+    bottom: 120px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: max-content;
+    border: 1px solid #aaa;
+    border-bottom-width: 3px;
+    padding: 10px 15px;
+    border-radius: 6px;
+    transform: rotate(-5deg);
+    box-shadow: 0 5px 10px #ddd;
+    color: #222;
+    display: none;
+}
+
+div#start.initial, div#nextslide {
+    animation: startpopup 2s 1;
+}
+
+div#start.started {
+    animation: started 1s 1;
+}
+
+@keyframes startpopup {
+    0% {
+        bottom: 0;
+        opacity: 0;
+    }
+
+    50% {
+        bottom: 135px;
+    }
+
+    60% {
+        bottom: 120px;
+        opacity: 1;
+    }
+
+    85% {
+        transform: rotate(0deg)
+    }
+}
+
+@keyframes started {
+    0% {
+        border: 1px solid #aaa;
+        color: transparent;
+        border-radius: 100%;
+        width: 80px;
+        height: 80px;
+        padding: 0;
+        box-shadow: none;
+    }
+
+    100% {
+        transform: scale(10);
+        color: transparent;
+        width: 80px;
+        height: 80px;
+        border-radius: 100%;
+        border-color: transparent;
+        background: #fff;
+        box-shadow: none;
+    }
+}
+
+body.started {
+    animation: bodystarted 2s 1;
+}
+
+@keyframes bodystarted {
+    0% {
+        background: #fff
+    }
+
+    100% {
+        background: #9dc4b9;
+    }
+}
+
+div#frame {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 90vw;
+    height: 90vh;
+    max-height: 100vh;
+    text-align: center;
+}
+
+div#frame>img {
+    position: absolute;
+    top: -123px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    visibility: hidden;
+    filter: saturate(1);
+	pointer-events: none;
+    max-height: 90vh;
+}
+
+@keyframes frameimg {
+    0% {
+		filter: saturate(0);
+    }
+    70% {
+		filter: saturate(0);
+    }
+    90% {
+		filter: saturate(2);
+    }
+    100% {
+		filter: saturate(1);
+    }
+}
+
+div#frame>img.show {
+    visibility: visible;
+    animation: frameimg 3s 1;
+}
+
+div#nextslide {
+    background: #fff;
+    font-weight: bold;
+    color: #444;
+    opacity: .9;
+    box-shadow: 0 0 0 5px #9ec4b9dd;
+}
+
+div#frame>img#mail {
+	display:none;
+    top: initial;
+    bottom: 60px;
+    visibility: visible;
+    width: 48px;
+    filter: invert(1);
+    background: #247a32;
+    border-radius: 5px;
+    transform: rotate(5deg);
+	pointer-events: initial;
+}
+
+div#typeit {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #fff;
+    padding: 50vh 20px;
+    box-sizing: border-box;
+    line-height: 1.5em;
+    font-size: 1.11em;
+    display: none;
+    overflow-y: auto;
+    max-width: 666px;
+    margin: auto;
+    right: 0;
+}
+
+div#typeit>b {
+    background: red;
+    padding: 0 5px;
+    margin: 0 -5px;
+    transform: rotate(-5deg);
+    display: inline-block;
+}
+
+div#typeit>b:nth-of-type(odd) {
+    transform: rotate(2deg);
+}
+
+div#typeit>b:nth-of-type(1) {
+    background: lightblue;
+}
+div#typeit>b:nth-of-type(2) {
+    background: lightyellow;
+}
+div#typeit>b:nth-of-type(3) {
+    background: lightpink;
+}
+div#typeit>b:nth-of-type(4) {
+    background: yellow;
+}
+div#typeit>b:nth-of-type(5) {
+    background: lightgreen;
+}
+div#typeit>b:nth-of-type(6) {
+    background: lightcyan;
+}
+div#typeit>b:nth-of-type(7) {
+    background: lightpink;
+}
+
+div#typeit>img {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+    z-index: -1;
+	margin: auto;
+	max-width: 250px;
+}
+
+div#typeit>img[src="cakecat.gif"] {
+    width: 50vw;
+    bottom: 10vh;
+}
+
+div#closing {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+div#closing>img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 192px;
+}
+
+div#closing.active {
+    visibility: visible;
+    z-index: 0;
+}
+
+div#closing.active>img {
+    animation: closeimg 3s 1;
+}
+
+@keyframes closeimg {
+    0% {
+		bottom: -192px;
+    }
+    90% {
+		bottom: -50px;
+    }
+}
+
+
+.container {
+    width: 80vw;
+    height: 32vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.svg-container {
+  z-index: 2;
+  position: absolute;
+}
+
+.mo-container {
+  width: 100%;
+  height: 100%;
+}
+
+.line {
+  fill: none;
+  stroke: #FFFFFF;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+}
+
+.lttr {
+  fill: #763C8C;
+}
+
+
+body.no {
+    background: url(no.png) no-repeat center;
+    background-size: 128px;
+    background-color: lightcyan;
+}
