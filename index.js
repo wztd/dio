@@ -37,6 +37,7 @@ function runArchive(){
 	$('.copy').on('click',function(){
 		copyToClipboard($(this).data('url'));
 		$(this).prev().find('input').focus().select();
+		$('#copied').show().delay(555).fadeOut(666);
 	});
 	$('.thmb').on('click',function(){
 		window.open('https://'+$(this).next().next().data('url'));

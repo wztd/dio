@@ -6,6 +6,23 @@ body {
 	font-smooth: always;
 }
 
+div#copied {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 10vh;
+	margin: auto;
+	z-index: 999;
+	background: #f6e9db;
+	width: max-content;
+	padding: 10px 20px;
+	border-radius: 10px;
+	box-shadow: 0 0 15px #b69b78;
+	color: #755d3f;
+	font-weight: bold;
+	opacity: .9;
+}
+
 div#backdrop {
 	position: fixed;
 	top: 0;
@@ -266,6 +283,7 @@ div#wrapper>img {
 	height: 72px;
 	background-size: cover;
 	background-color: #4574a3;
+	cursor: pointer;
 }
 
 .info {
