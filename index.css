@@ -24,7 +24,7 @@ div#msgbox {
 	right: 0;
 	bottom: 0;
 	margin: auto;
-	width: 300px;
+	width: 260px;
 	height: max-content;
 	max-width: 80vw;
 	z-index: 9999;
