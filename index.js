@@ -38,6 +38,9 @@ function runArchive(){
 		copyToClipboard($(this).data('url'));
 		$(this).prev().find('input').focus().select();
 	});
+	$('.thmb').on('click',function(){
+		window.open('https://'+$(this).next().next().data('url'));
+	});
 }
 
 if(!!localStorage.archive && JSON.parse(localStorage.archive).length>=0){
