@@ -6,6 +6,144 @@ body {
 	font-smooth: always;
 }
 
+div#backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: #f8f1ea;
+	z-index: 998;
+	opacity: .9;
+}
+
+div#msgbox {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 300px;
+	height: max-content;
+	max-width: 80vw;
+	z-index: 9999;
+	border: 1px solid #7c93ac;
+	border-radius: 5px;
+	overflow: hidden;
+	padding: 10px;
+	text-align: center;
+	background: #f4eae0;
+	cursor: default;
+}
+
+div#msgbox:not(.shown) {
+	animation: showbox ease .6s 1;
+}
+
+div#msgbox.shown {
+	animation: hidebox ease .6s 1;
+}
+
+@keyframes showbox {
+	0% {transform: scale(1.1)}
+	80% {transform: scale(.8)}
+}
+
+@keyframes hidebox {
+	20% {transform: scale(1.1)}
+	100% {transform: scale(.5)}
+}
+
+div#msgheader {
+	background: #4673a3;
+	height: 25px;
+	position: relative;
+	margin: -10px;
+	margin-bottom: 10px;
+	text-align: left;
+}
+
+div#msgheader>div {
+	width: 15px;
+	height: 15px;
+	background: #0006;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	border-radius: 100%;
+}
+
+div#msgheader>div:after, div#msgheader>div:before {
+	content: '';
+	width: inherit;
+	height: inherit;
+	display: block;
+	position: absolute;
+	right: 20px;
+	background: inherit;
+	border-radius: 100%;
+}
+
+div#msgheader>div:before {
+	right: 40px;
+}
+
+div#msgheader>span {
+	color: #f8f1ea;
+	padding: 5px;
+	display: inline-block;
+	font-size: 0.8em;
+	vertical-align: -webkit-baseline-middle;
+}
+
+div#msgicon {
+	width: 48px;
+	height: 48px;
+	position: absolute;
+	top: 25px;
+	left: 10px;
+	bottom: 40px;
+	margin: auto;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+
+div#msgmsg {
+	display: inline-block;
+	width: calc(100% - 90px);
+	margin-left: 55px;
+	margin-right: 35px;
+	box-sizing: border-box;
+}
+
+div#msgbtn {
+	padding: 5px 20px;
+	border: 1px solid #4673a3;
+	background: #7c93ac;
+	color: #f4e9d8;
+	display: inline-block;
+	margin: auto;
+	margin-top: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+div#msgbox.info {border-color: lightseagreen;}
+div#msgbox.info #msgicon {background-image: url(info.png);}
+div#msgbox.info div#msgheader {background: lightseagreen;}
+div#msgbox.info div#msgbtn {border-color: darkseagreen;background: lightseagreen;}
+div#msgbox.warn {border-color: darkorange;}
+div#msgbox.warn #msgicon {background-image: url(warn.png);}
+div#msgbox.warn div#msgheader {background: darkorange;}
+div#msgbox.warn div#msgbtn {border-color: indianred;background: darkorange;}
+div#msgbox.error {border-color: #ea6c4c;}
+div#msgbox.error #msgicon {background-image: url(error.png);}
+div#msgbox.error div#msgheader {background: #ea6c4c;}
+div#msgbox.error div#msgbtn {border-color: mediumvioletred;background: #ea6c4c;}
+
 div#wrapper {
 	width: 414px;
 	max-width: 100%;
@@ -71,7 +209,8 @@ b#progressBar {
 	top: 2px;
 	left: 2px;
 	bottom: 2px;
-	width: 0;
+	max-width: 100%;
+	max-width: calc(100% - 4px);
 	background: linear-gradient(45deg, #4673a144, #7b93aa);
 	border-radius: 10px;
 	z-index: -1;

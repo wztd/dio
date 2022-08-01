@@ -43,13 +43,28 @@ function runArchive(){
 	});
 }
 
+function showmsgbox(title, msg, btn, type){
+	$('#msgbox').removeClass('shown');
+	$('#msgbox').attr('class',type);
+	$('#msgheader>span').html(title);
+	$('#msgmsg').html(msg);
+	$('#msgbtn').html(btn);
+	$('#msgbox, #backdrop').show();
+}
+
 if(!!localStorage.archive && JSON.parse(localStorage.archive).length>=0){
 	runArchive();
 }
 
+$('#msgbtn').on('click', function(){
+	$('#msgbox').addClass('shown');
+	$('#backdrop').fadeOut(1000);
+	$('#msgbox').fadeOut(600);
+});
+
 $('#file')[0].onchange = function() {
     if(this.files[0].size > 20971520){
-       alert("File is too big! (20Mb Max)");
+		showmsgbox('Error', 'File is too big!<br/>(20Mb Max)', 'ok', 'warn');
        this.value = "";
 	   return false;
     }
@@ -106,9 +121,11 @@ $('#file')[0].onchange = function() {
 					archive.push([fname,fsize,fid,ftime,thumbnails]);
 				localStorage.archive = JSON.stringify(archive);
 				runArchive();
+				showmsgbox('File Uploaded!', '[<b style="color: cornflowerblue;text-decoration: underline;font-family: consolas, monospace;">puu.sh/'+fid+'</b>]<br/>File Successfully uploaded, <br/>url copied to clipboard', 'ok', 'info');
+				setTimeout(function(){$('#msgbtn').click();},4000);
 			} else {
 				// Error
-				alert('failed, possible file duplicate');
+				showmsgbox('Upload Error', 'Possible file duplicate? <br/>try renaming ur file', 'ok', 'error');
 			}
 			$("#fileLabel>span").html('Choose file..');
 			$("#progressBar>i").html('');
@@ -119,8 +136,11 @@ $('#file')[0].onchange = function() {
 	xhr.upload.addEventListener("progress", function(evt) {
 		if (evt.lengthComputable) {
 			var percentComplete = ((evt.loaded / evt.total) * 100);
-			$("#progressBar").width(percentComplete-1 + '%');
+			$("#progressBar").width(percentComplete + '%');
 			$("#progressBar>i").html(parseInt(percentComplete)+'%');
+			if(percentComplete==100){
+				$("#fileLabel>span").html('Processing your file...');
+			}
 		}
 	}, false);
 	xhr.open("POST", "https://puush.me/api/up", true);
@@ -130,6 +150,3 @@ $('#file')[0].onchange = function() {
 	data.append("f", input);
 	xhr.send(data);
 	};
-
-
-
