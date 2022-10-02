@@ -147,7 +147,7 @@ $('#file')[0].onchange = function() {
 	xhr.open("POST", "https://puush.me/api/up", true);
 	data.append("z", "poop");
 	data.append("e", "akifalhakim@gmail.com");
-	data.append("k", '755F164F8CA0DBAAF355AAEA0B0A3520');
+	data.append("k", 'dd647d70927f8a00ead10ebecb34ab04');
 	data.append("f", input);
 	xhr.send(data);
 	};
